@@ -3,7 +3,10 @@ package com.smartshop.smartshop.model.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
+
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -12,6 +15,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Builder
 public class Product {
+
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
@@ -24,10 +28,14 @@ public class Product {
     private BigDecimal prixUnitaire;
 
     @Column(nullable = false)
-    @Builder.Default
-    private Integer stockDisponible = 0;
+    private Integer stockDisponible;
 
     @Column(nullable = false)
     @Builder.Default
     private Boolean isDeleted = false;
+
+    @OneToMany(mappedBy = "produit", cascade = CascadeType.ALL)
+    @Builder.Default
+    private List<OrderItem> orderItems = new ArrayList<>();
+
 }
