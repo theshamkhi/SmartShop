@@ -2,7 +2,6 @@ package com.smartshop.smartshop.model.entity;
 
 import com.smartshop.smartshop.model.enums.PaymentStatus;
 import com.smartshop.smartshop.model.enums.PaymentType;
-
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -18,6 +17,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class Paiement {
+
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
@@ -28,7 +28,7 @@ public class Paiement {
     private Commande commande;
 
     @Column(nullable = false)
-    private Integer numeroPaiement;
+    private String numeroPaiement;
 
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal montant;
@@ -41,15 +41,15 @@ public class Paiement {
     @Builder.Default
     private LocalDateTime datePaiement = LocalDateTime.now();
 
-    private LocalDateTime dateEncaissement;
+    private LocalDate dateEncaissement;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     @Builder.Default
     private PaymentStatus statut = PaymentStatus.EN_ATTENTE;
 
-    // For CHEQUE and VIREMENT
     private String reference;
     private String banque;
     private LocalDate echeance;
+
 }
