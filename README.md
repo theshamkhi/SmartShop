@@ -168,10 +168,10 @@ DELETE /api/paiements/{id}   # Delete payment (ADMIN)
 ├── 📂 model
 │   ├── entity/      # Domain entities (User, Client, Product, etc.)
 │   └── enums/       # Business enumerations
+│   └── dto/ 
+│       ├── request/     # API request DTOs
+│       └── response/    # API response DTOs
 ├── 📂 repository    # Data access layer (Spring Data JPA)
-├── 📂 dto
-│   ├── request/     # API request DTOs
-│   └── response/    # API response DTOs
 ├── 📂 mapper        # MapStruct mappers
 ├── 📂 service       # Business logic layer
 ├── 📂 controller    # REST API endpoints
