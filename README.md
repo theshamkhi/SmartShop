@@ -71,36 +71,29 @@ SmartShop is a comprehensive REST API backend for commercial management, featuri
 
 ---
 
-## 🚀 Quick Start
+## 🏗 Architecture
 
-### Prerequisites
+### Layered DDD Architecture
 
-```bash
-☕ Java 17+
-📦 Maven 3.6+
+```
+📁 com.smartshop.smartshop
+├── 📂 model
+│   ├── entity/      # Domain entities (User, Client, Product, etc.)
+│   └── enums/       # Business enumerations
+│   └── dto/ 
+│       ├── request/     # API request DTOs
+│       └── response/    # API response DTOs
+├── 📂 repository    # Data access layer (Spring Data JPA)
+├── 📂 mapper        # MapStruct mappers
+├── 📂 service       # Business logic layer
+├── 📂 controller    # REST API endpoints
+├── 📂 exception     # Custom exceptions & handlers
+└── 📂 config        # Configuration classes
 ```
 
-### Installation
+### UML Diagram
 
-1. **Clone the repository**
-```bash
-git clone https://github.com/theshamkhi/SmartShop.git
-cd SmartShop
-```
-
-2. **Build the project**
-```bash
-mvn clean install
-```
-
-3. **Run the application**
-```bash
-mvn spring-boot:run
-```
-
-4. **Access the application**
-- API Base URL: `http://localhost:8080/api`
-- Swagger UI: `http://localhost:8080/api/swagger-ui.html`
+<img width="851" height="952" alt="Class" src="https://github.com/user-attachments/assets/2cee1a3e-e2d1-4d46-922a-116b2c0f0864" />
 
 ---
 
@@ -156,32 +149,38 @@ GET    /api/paiements        # List all payments (ADMIN)
 GET    /api/paiements/{id}   # Get payment details (ADMIN)
 DELETE /api/paiements/{id}   # Delete payment (ADMIN)
 ```
-
 ---
 
-## 🏗 Architecture
+## 🚀 Quick Start
 
-### Layered DDD Architecture
+### Prerequisites
 
-```
-📁 com.smartshop.smartshop
-├── 📂 model
-│   ├── entity/      # Domain entities (User, Client, Product, etc.)
-│   └── enums/       # Business enumerations
-│   └── dto/ 
-│       ├── request/     # API request DTOs
-│       └── response/    # API response DTOs
-├── 📂 repository    # Data access layer (Spring Data JPA)
-├── 📂 mapper        # MapStruct mappers
-├── 📂 service       # Business logic layer
-├── 📂 controller    # REST API endpoints
-├── 📂 exception     # Custom exceptions & handlers
-└── 📂 config        # Configuration classes
+```bash
+☕ Java 17+
+📦 Maven 3.6+
 ```
 
-### UML Diagram
+### Installation
 
-<img width="851" height="952" alt="Class" src="https://github.com/user-attachments/assets/2cee1a3e-e2d1-4d46-922a-116b2c0f0864" />
+1. **Clone the repository**
+```bash
+git clone https://github.com/theshamkhi/SmartShop.git
+cd SmartShop
+```
+
+2. **Build the project**
+```bash
+mvn clean install
+```
+
+3. **Run the application**
+```bash
+mvn spring-boot:run
+```
+
+4. **Access the application**
+- API Base URL: `http://localhost:8080/api`
+- Swagger UI: `http://localhost:8080/api/swagger-ui.html`
 
 ---
 
