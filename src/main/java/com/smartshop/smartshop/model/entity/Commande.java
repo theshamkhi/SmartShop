@@ -17,6 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class Commande {
+
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
@@ -31,20 +32,17 @@ public class Commande {
     private LocalDateTime dateCreation = LocalDateTime.now();
 
     @Column(nullable = false, precision = 10, scale = 2)
-    @Builder.Default
-    private BigDecimal sousTotal = BigDecimal.ZERO;
+    private BigDecimal sousTotal;
 
     @Column(nullable = false, precision = 10, scale = 2)
     @Builder.Default
     private BigDecimal remise = BigDecimal.ZERO;
 
     @Column(nullable = false, precision = 10, scale = 2)
-    @Builder.Default
-    private BigDecimal TVA = BigDecimal.ZERO;
+    private BigDecimal tva;
 
     @Column(nullable = false, precision = 10, scale = 2)
-    @Builder.Default
-    private BigDecimal totalTTC = BigDecimal.ZERO;
+    private BigDecimal totalTTC;
 
     private String codePromo;
 
@@ -54,8 +52,7 @@ public class Commande {
     private OrderStatus statut = OrderStatus.PENDING;
 
     @Column(nullable = false, precision = 10, scale = 2)
-    @Builder.Default
-    private BigDecimal montantRestant = BigDecimal.ZERO;
+    private BigDecimal montantRestant;
 
     @OneToMany(mappedBy = "commande", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
@@ -64,4 +61,5 @@ public class Commande {
     @OneToMany(mappedBy = "commande", cascade = CascadeType.ALL, orphanRemoval = true)
     @Builder.Default
     private List<Paiement> paiements = new ArrayList<>();
+
 }
