@@ -106,6 +106,8 @@ mvn spring-boot:run
 
 ## 📚 API Documentation
 
+<img width="1920" height="1436" alt="swagger" src="https://github.com/user-attachments/assets/5d92b546-0588-44d2-9b9f-48b2c38e1827" />
+
 ### 🔐 Authentication
 
 ```http
@@ -155,8 +157,6 @@ GET    /api/paiements/{id}   # Get payment details (ADMIN)
 DELETE /api/paiements/{id}   # Delete payment (ADMIN)
 ```
 
-### 📋 Example Request
-
 ---
 
 ## 🏗 Architecture
@@ -178,6 +178,10 @@ DELETE /api/paiements/{id}   # Delete payment (ADMIN)
 ├── 📂 exception     # Custom exceptions & handlers
 └── 📂 config        # Configuration classes
 ```
+
+### UML Diagram
+
+<img width="851" height="952" alt="Class" src="https://github.com/user-attachments/assets/2cee1a3e-e2d1-4d46-922a-116b2c0f0864" />
 
 ---
 
